@@ -8,11 +8,17 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import { makeStyles } from "@mui/styles"
 import Header from "./header"
 import "./layout.css"
+import carBg from "../images/car-bg.jpg"
+import { Box } from "@mui/material"
 
-const Layout = ({ children }) => {
+interface Props {
+  children: React.ReactNode
+}
+
+const Layout = ({ children }: Props) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -22,31 +28,28 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
+  const classes = styles()
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <Box className={classes.background}>
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
+      </Box>
     </>
   )
 }
+
+const styles = makeStyles({
+  background: {
+    margin: `0 auto`,
+    padding: `5vw 1.0875rem 1.45rem`,
+    backgroundImage: `url(${carBg})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center !important",
+    backgroundSize: "cover !important",
+    height: "50vw !important",
+  },
+})
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
