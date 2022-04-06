@@ -11,6 +11,7 @@
     "@mui/material": "^5.5.3",
     "@mui/styled-engine-sc": "^5.5.2",
     "@mui/styles": "^5.5.3",
+    "firebase": "^9.6.10",
     "gatsby": "^4.11.1",
     "gatsby-plugin-gatsby-cloud": "^4.11.1",
     "gatsby-plugin-image": "^2.11.1",
@@ -21,10 +22,12 @@
     "gatsby-plugin-typescript": "^4.11.1",
     "gatsby-source-filesystem": "^4.11.1",
     "gatsby-transformer-sharp": "^4.11.0",
+    "install": "^0.13.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-phone-number-input": "^3.1.49",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
